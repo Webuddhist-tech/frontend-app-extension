@@ -32,12 +32,11 @@ subscribe(APP_READY, () => {
         <FooterSlot />
       </QueryClientProvider>
     </AppProvider>,
-    document.getElementById('root'),
   );
 });
 
 subscribe(APP_INIT_ERROR, (error: { message: any }) => {
-  root.render(<ErrorPage message={error.message} />, document.getElementById('root'));
+  root.render(<ErrorPage message={error.message} />);
 });
 
 initialize({

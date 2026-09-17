@@ -1,10 +1,10 @@
 {
-  "name": "@edx/frontend-template-application",
+  "name": "@edx/frontend-app-extension",
   "version": "0.1.0",
-  "description": "Frontend application template",
+  "description": "Custom extension micro-frontend for Webuddhist Academy Open edX",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-template-application.git"
+    "url": "git+https://github.com/Webuddhist-tech/frontend-app-extension.git"
   },
   "browserslist": [
     "extends @edx/browserslist-config"
@@ -18,22 +18,18 @@
     "snapshot": "fedx-scripts jest --updateSnapshot",
     "start": "fedx-scripts webpack-dev-server --progress",
     "start:with-theme": "paragon install-theme && npm start && npm install",
+    "dev": "PUBLIC_PATH=/catalog/ MFE_CONFIG_API_URL='http://localhost:8000/api/mfe_config/v1' fedx-scripts webpack-dev-server --progress --host apps.local.openedx.io",
     "test": "fedx-scripts jest --coverage --passWithNoTests",
     "types": "tsc --noEmit"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "author": "edX",
+  "author": "Webuddhist Tech",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/openedx/frontend-template-application#readme",
+  "homepage": "https://github.com/Webuddhist-tech/frontend-app-extension#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/openedx/frontend-template-application/issues"
+    "url": "https://github.com/Webuddhist-tech/frontend-app-extension/issues"
   },
   "dependencies": {
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
