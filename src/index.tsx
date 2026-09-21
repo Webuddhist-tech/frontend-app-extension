@@ -10,12 +10,14 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { Route, Routes } from 'react-router-dom';
 
 import Header from '@edx/frontend-component-header';
 import { FooterSlot } from '@edx/frontend-component-footer';
-import messages from './i18n';
-import ExamplePage from './example/ExamplePage';
 
+import WishlistPage from './wishlist/WishlistPage';
+
+import messages from './i18n';
 import './index.scss';
 
 const queryClient = new QueryClient();
@@ -27,9 +29,15 @@ subscribe(APP_READY, () => {
   root.render(
     <AppProvider>
       <QueryClientProvider client={queryClient}>
-        <Header />
-        <ExamplePage />
-        <FooterSlot />
+        <div className="d-flex flex-column min-dvh-100">
+          <Header />
+          <main className="d-flex flex-column flex-grow-1">
+            <Routes>
+              <Route path="/wishlist" element={<WishlistPage />} />
+            </Routes>
+          </main>
+          <FooterSlot />
+        </div>
       </QueryClientProvider>
     </AppProvider>,
   );
