@@ -4,7 +4,9 @@ import 'regenerator-runtime/runtime';
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
 } from '@edx/frontend-platform';
-import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
+import {
+  AppProvider, AuthenticatedPageRoute, ErrorPage,
+} from '@edx/frontend-platform/react';
 import { createRoot } from 'react-dom/client';
 import {
   QueryClient,
@@ -33,7 +35,10 @@ subscribe(APP_READY, () => {
           <Header />
           <main className="d-flex flex-column flex-grow-1">
             <Routes>
-              <Route path="/wishlist" element={<WishlistPage />} />
+              <Route
+                path="/wishlist"
+                element={<AuthenticatedPageRoute><WishlistPage /></AuthenticatedPageRoute>}
+              />
             </Routes>
           </main>
           <FooterSlot />
