@@ -12,7 +12,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Header from '@edx/frontend-component-header';
 import { FooterSlot } from '@edx/frontend-component-footer';
@@ -29,21 +29,23 @@ const root = createRoot(container!);
 
 subscribe(APP_READY, () => {
   root.render(
-    <AppProvider>
-      <QueryClientProvider client={queryClient}>
-        <div className="d-flex flex-column min-dvh-100">
-          <Header />
-          <main className="d-flex flex-column flex-grow-1">
-            <Routes>
-              <Route
-                path="/wishlist"
-                element={<AuthenticatedPageRoute><WishlistPage /></AuthenticatedPageRoute>}
-              />
-            </Routes>
-          </main>
-          <FooterSlot />
-        </div>
-      </QueryClientProvider>
+    <AppProvider wrapWithRouter={false}>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <div className="d-flex flex-column min-dvh-100">
+            <Header />
+            <main className="d-flex flex-column flex-grow-1">
+              <Routes>
+                <Route
+                  path="/wishlist"
+                  element={<AuthenticatedPageRoute><WishlistPage /></AuthenticatedPageRoute>}
+                />
+              </Routes>
+            </main>
+            <FooterSlot />
+          </div>
+        </QueryClientProvider>
+      </BrowserRouter>
     </AppProvider>,
   );
 });
