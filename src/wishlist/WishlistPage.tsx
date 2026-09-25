@@ -56,6 +56,7 @@ const WishlistPage = () => {
   } = useQuery({
     queryKey: ['wishlist', page],
     queryFn: () => fetchWishlist(page),
+    refetchOnWindowFocus: false,
   });
   const removeWishlistItem = useMutation({
     mutationFn: removeFromWishlist,
