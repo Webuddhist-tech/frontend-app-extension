@@ -14,9 +14,9 @@ import {
 } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Header from '@edx/frontend-component-header';
 import { FooterSlot } from '@edx/frontend-component-footer';
 
+import ExtensionHeader from './header/ExtensionHeader';
 import WishlistPage from './wishlist/WishlistPage';
 
 import messages from './i18n';
@@ -33,7 +33,7 @@ subscribe(APP_READY, () => {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <div className="d-flex flex-column min-dvh-100">
-            <Header />
+            <ExtensionHeader />
             <main className="d-flex flex-column flex-grow-1">
               <Routes>
                 <Route
