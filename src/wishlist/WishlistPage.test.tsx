@@ -93,6 +93,15 @@ describe('WishlistPage', () => {
       .toBe('http://local.openedx.io/courses');
   });
 
+  it('shows only the centered loader while loading', () => {
+    mockFetchWishlist.mockReturnValue(new Promise(() => {}));
+
+    const { container } = renderPage();
+
+    expect(container.querySelector('.wishlist-page__loading .spinner-border')).not.toBeNull();
+    expect(screen.queryByRole('heading')).toBeNull();
+  });
+
   it('loads the selected wishlist page', async () => {
     const user = userEvent.setup();
     mockFetchWishlist
