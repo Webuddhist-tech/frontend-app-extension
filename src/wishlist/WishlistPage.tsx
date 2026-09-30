@@ -81,6 +81,20 @@ const WishlistPage = () => {
     && breakpoints.medium.maxWidth !== undefined
     && width < breakpoints.medium.maxWidth;
 
+  if (isPending) {
+    return (
+      <>
+        <Head title={intl.formatMessage(messages.pageTitle)} />
+        <div className="wishlist-page__loading">
+          <Spinner
+            animation="border"
+            screenReaderText={intl.formatMessage(messages.loading)}
+          />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Head title={intl.formatMessage(messages.pageTitle)} />
@@ -99,13 +113,6 @@ const WishlistPage = () => {
         </header>
 
         <section className="wishlist-page__content" aria-live="polite">
-          {isPending && (
-            <div className="wishlist-page__status" role="status">
-              <Spinner animation="border" className="mr-3" />
-              {intl.formatMessage(messages.loading)}
-            </div>
-          )}
-
           {isError && (
             <Alert
               variant="danger"
@@ -123,7 +130,7 @@ const WishlistPage = () => {
             <Alert variant="danger">{intl.formatMessage(messages.removeError)}</Alert>
           )}
 
-          {!isPending && !isError && items.length === 0 && (
+          {!isError && items.length === 0 && (
             <div className="wishlist-empty">
               <img className="wishlist-empty__illustration" src={wishlistEmptyImage} alt="" />
               <h2>{intl.formatMessage(messages.empty)}</h2>
@@ -140,7 +147,7 @@ const WishlistPage = () => {
             </div>
           )}
 
-          {!isPending && !isError && items.length > 0 && (
+          {!isError && items.length > 0 && (
             <>
               <div className="wishlist-list">
                 {items.map(item => {

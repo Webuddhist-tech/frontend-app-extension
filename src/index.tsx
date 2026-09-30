@@ -17,6 +17,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FooterSlot } from '@edx/frontend-component-footer';
 
 import ExtensionHeader from './header/ExtensionHeader';
+import NotFoundPage from './not-found-page/NotFoundPage';
 import WishlistPage from './wishlist/WishlistPage';
 
 import messages from './i18n';
@@ -40,6 +41,7 @@ subscribe(APP_READY, () => {
                   path="/wishlist"
                   element={<AuthenticatedPageRoute><WishlistPage /></AuthenticatedPageRoute>}
                 />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </main>
             <FooterSlot />
