@@ -6,6 +6,7 @@ export interface WishlistItem {
   title: string;
   imageUrl: string;
   org: string;
+  organizationDisplayName: string;
   start: string | null;
   advertisedStart: string | null;
   created: string;
