@@ -172,7 +172,7 @@ const WishlistPage = () => {
                       </div>
                       <div className="wishlist-card__details">
                         <a className="wishlist-card__title" href={courseUrl}>{item.title}</a>
-                        <p className="wishlist-card__org">{item.org}</p>
+                        <p className="wishlist-card__org">{item.organizationDisplayName}</p>
                         {startDate && (
                           <p className="wishlist-card__start">
                             {intl.formatMessage(messages.startDate, { startDate })}

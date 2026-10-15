@@ -56,6 +56,7 @@ describe('WishlistPage', () => {
           title: 'Demo course',
           imageUrl: '/asset-v1:Sherab+Demo+2026+type@asset+block@course.jpg',
           org: 'Sherab',
+          organizationDisplayName: 'Sherab College',
           start: '2026-10-05T00:00:00Z',
           advertisedStart: null,
           created: '2026-09-21T00:00:00Z',
@@ -69,6 +70,7 @@ describe('WishlistPage', () => {
     renderPage();
 
     expect(await screen.findByText('Demo course')).not.toBeNull();
+    expect(screen.getByText('Sherab College')).not.toBeNull();
     expect(screen.getByText('1 course saved')).not.toBeNull();
     expect(screen.getByText(/Starts.*Oct.*2026/)).not.toBeNull();
     await waitFor(() => {
@@ -114,6 +116,7 @@ describe('WishlistPage', () => {
           title: 'First page course',
           imageUrl: '',
           org: 'Sherab',
+          organizationDisplayName: 'Sherab College',
           start: null,
           advertisedStart: null,
           created: '2026-09-21T00:00:00Z',
@@ -128,6 +131,7 @@ describe('WishlistPage', () => {
           title: 'Second page course',
           imageUrl: '',
           org: 'Sherab',
+          organizationDisplayName: 'Sherab College',
           start: null,
           advertisedStart: null,
           created: '2026-09-20T00:00:00Z',
