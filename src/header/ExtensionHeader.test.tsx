@@ -32,9 +32,9 @@ it('passes the Extension navigation to the shared header', () => {
   );
 
   expect(mockHeaderProps.mock.calls[0][0].mainMenuItems).toEqual([
-    expect.objectContaining({ content: 'Dashboard', href: 'http://local.openedx.io/dashboard' }),
+    expect.objectContaining({ content: 'My Courses', href: 'http://local.openedx.io/dashboard' }),
     expect.objectContaining({ content: 'Programs', href: 'http://local.openedx.io/dashboard/programs' }),
-    expect.objectContaining({ content: 'Discover New', href: 'http://local.openedx.io/courses' }),
+    expect.objectContaining({ content: 'Explore Courses', href: 'http://local.openedx.io/courses' }),
     expect.objectContaining({
       content: 'Wishlist',
       href: 'http://apps.local.openedx.io:2003/wishlist',
