@@ -18,6 +18,7 @@ import { FooterSlot } from '@edx/frontend-component-footer';
 
 import ExtensionHeader from './header/ExtensionHeader';
 import NotFoundPage from './not-found-page/NotFoundPage';
+import StartCampusPage from './start-campus/StartCampusPage';
 import WishlistPage from './wishlist/WishlistPage';
 
 import messages from './i18n';
@@ -40,6 +41,10 @@ subscribe(APP_READY, () => {
                 <Route
                   path="/wishlist"
                   element={<AuthenticatedPageRoute><WishlistPage /></AuthenticatedPageRoute>}
+                />
+                <Route
+                  path="/start-campus"
+                  element={<StartCampusPage />}
                 />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
